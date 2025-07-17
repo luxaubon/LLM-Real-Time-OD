@@ -22,7 +22,7 @@ export default function Home() {
 
       if (navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices
-          .getUserMedia({ video: true })
+          .getUserMedia({ video: { facingMode: { exact: 'environment' } } })
           .then((stream) => {
             video.srcObject = stream
             video.play()
@@ -87,7 +87,7 @@ export default function Home() {
 
   return (
    <main className="flex flex-col items-center justify-center p-4">
-      <h1 className="text-2xl font-bold mb-4">🎥 Object Detection + LLM</h1>
+      <h1 className="text-2xl font-bold mb-4">Object Detection + LLM</h1>
       {loading && <p>⏳ กำลังโหลดโมเดล...</p>}
       <div className="relative  max-w-2xl mx-auto">
         <video
